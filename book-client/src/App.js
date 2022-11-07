@@ -1,5 +1,5 @@
 import AddForm from "./components/AddForm";
-import BookList from "./components/BookList";
+import BookContainer from "./components/BookContainer";
 import Container from "./components/Container";
 import Header from "./components/Header";
 import "./input.css";
@@ -10,7 +10,7 @@ const App = () => {
       <Header />
       <Container>
         <AddForm />
-        <BookList />
+        <BookContainer />
       </Container>
     </>
   );
