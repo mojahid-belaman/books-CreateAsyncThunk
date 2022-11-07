@@ -1,0 +1,64 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "react",
+      "description": "A JavaScript library for building user interfaces",
+      "price": 100
+    },
+    {
+      "id": "2",
+      "title": "redux",
+      "description": "A predictable state container for JavaScript apps",
+      "price": 200
+    },
+    {
+      "id": "3",
+      "title": "react-redux",
+      "description": "Official React bindings for Redux",
+      "price": 300
+    },
+    {
+      "id": "4",
+      "title": "react-router",
+      "description": "Declarative routing for React",
+      "price": 400
+    },
+    {
+      "id": "5",
+      "title": "react-router-redux",
+      "description": "Simple bindings to keep react-router and redux in sync",
+      "price": 500
+    },
+    {
+      "id": "6",
+      "title": "redux-thunk",
+      "description": "Thunk middleware for Redux",
+      "price": 600
+    },
+    {
+      "id": "7",
+      "title": "redux-logger",
+      "description": "Logger for Redux",
+      "price": 700
+    },
+    {
+      "id": "8",
+      "title": "redux-devtools",
+      "description": "DevTools for Redux with hot reloading, action replay, and customizable UI",
+      "price": 800
+    },
+    {
+      "id": "9",
+      "title": "redux-devtools-dock-monitor",
+      "description": "Dock Monitor for Redux DevTools",
+      "price": 900
+    },
+    {
+      "id": "10",
+      "title": "redux-devtools-log-monitor",
+      "description": "Log Monitor for Redux DevTools",
+      "price": 1000
+    }
+  ]
+}
