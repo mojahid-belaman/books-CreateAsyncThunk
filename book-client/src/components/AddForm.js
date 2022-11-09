@@ -1,3 +1,4 @@
+import { nanoid } from "@reduxjs/toolkit";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addBook } from "../store/bookSlice";
@@ -12,20 +13,24 @@ function AddForm() {
     e.preventDefault();
     const title = titleRef.current.value;
     const price = priceRef.current.value;
-    const descr = descrRef.current.value;
+    const description = descrRef.current.value;
     if (
       title.trim().length === 0 ||
       price.trim().length === 0 ||
       parseInt(price) < 0 ||
-      descr.trim().length === 0
+      description.trim().length === 0
     ) {
       return alert("Please enter a valid title, price, and description.");
     }
     const book = {
+      id: nanoid(),
       title,
       price,
-      descr,
+      description,
     };
+    titleRef.current.value = null;
+    priceRef.current.value = null;
+    descrRef.current.value = null;
     dispatch(addBook(book));
   };
   return (
