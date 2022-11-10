@@ -8,6 +8,7 @@ import Error from "./Error";
 const BookContainer = () => {
   const dispatch = useDispatch();
   const { data, isLoading, error } = useSelector((state) => state.books);
+  const { isLoggedIn } = useSelector((state) => state.auth);
   const [book, setBook] = React.useState(null);
 
   useEffect(() => {
@@ -17,14 +18,20 @@ const BookContainer = () => {
   const getInfoBook = (id) => {
     const book = data?.find((book) => book.id === id);
     setBook(book);
-  }
+  };
   return (
     <>
       {error ? (
         <Error text={"Server Is Down!."} />
       ) : (
         <div className="flex gap-5">
-          <BookList books={data} isLoading={isLoading} getInfoBook={getInfoBook} dispatch={dispatch} />
+          <BookList
+            books={data}
+            isLoading={isLoading}
+            getInfoBook={getInfoBook}
+            dispatch={dispatch}
+            isLoggedIn={isLoggedIn}
+          />
           <BookInfo book={book} />
         </div>
       )}
