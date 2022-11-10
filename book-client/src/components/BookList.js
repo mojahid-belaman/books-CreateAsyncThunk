@@ -1,7 +1,7 @@
 import React from "react";
 import { deleteBook } from "../store/bookSlice";
 
-function BookList({ books, isLoading, getInfoBook, dispatch }) {
+function BookList({ books, isLoading, getInfoBook, dispatch, isLoggedIn }) {
   const bookList =
     books.length > 0 ? (
       books.map((item, idx) => (
@@ -12,7 +12,8 @@ function BookList({ books, isLoading, getInfoBook, dispatch }) {
           <div className="flex gap-3">
             <button
               onClick={() => getInfoBook(item.id)}
-              className="p-2 rounded-lg text-white font-bold bg-sky-900 hover:bg-sky-700"
+              className={`${!isLoggedIn && `bg-gray-500 hover:bg-gray-400 cursor-auto`} p-2 rounded-lg text-white font-bold bg-sky-900 hover:bg-sky-700 cursor-pointer`}
+              disabled={!isLoggedIn}
             >
               Read
             </button>
@@ -21,7 +22,8 @@ function BookList({ books, isLoading, getInfoBook, dispatch }) {
                 dispatch(deleteBook(item.id));
                 getInfoBook(item.id)
               }}
-              className="p-2 rounded-lg text-white font-bold bg-red-600 hover:bg-red-500"
+              className={`${!isLoggedIn && `bg-gray-500 hover:bg-gray-400`} p-2 rounded-lg text-white font-bold bg-red-600 hover:bg-red-500 cursor-pointer`}
+              disabled={!isLoggedIn}
             >
               Delete
             </button>
