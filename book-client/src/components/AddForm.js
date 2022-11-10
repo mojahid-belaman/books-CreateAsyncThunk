@@ -1,10 +1,11 @@
 import { nanoid } from "@reduxjs/toolkit";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addBook } from "../store/bookSlice";
 
 function AddForm() {
   const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector((state) => state.auth);
   const titleRef = React.useRef();
   const priceRef = React.useRef();
   const descrRef = React.useRef();
@@ -82,9 +83,12 @@ function AddForm() {
               />
             </div>
             <button
-              className="mt-5 py-2 px-5 rounded-lg text-white font-bold bg-sky-900 hover:bg-sky-800 hover:font-semibold"
+              className={`${
+                !isLoggedIn && `bg-gray-500 hover:bg-gray-400 cursor-default`
+              } mt-5 py-2 px-5 rounded-lg text-white font-bold bg-sky-900 hover:bg-sky-800 hover:font-semibold cursor-pointer`}
               type="button"
               onClick={handleSubmit}
+              disabled={!isLoggedIn}
             >
               Submit
             </button>
